@@ -12,7 +12,6 @@ public partial class NewPage1
 {
 	public NewPage1()
     {
-        BindingContext = new NewPage1ViewModel();
         InitializeComponent();
 	}
 
