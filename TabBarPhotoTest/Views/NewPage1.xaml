@@ -1,13 +1,189 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TabBarPhotoTest.Views.NewPage1"
-             Title="NewPage1">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Image Source="https://investorplace.com/wp-content/uploads/2014/05/DuckDuckGo-Logo.jpg"></Image>
-    </VerticalStackLayout>
+<ContentPage
+    x:Class="TabBarPhotoTest.Views.NewPage1"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:context="clr-namespace:TabBarPhotoTest.ViewModel"
+    Title="NewPage1">
+    <ContentPage.BindingContext>
+        <context:NewPage1ViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <RefreshView
+            BackgroundColor="DodgerBlue"
+            Command="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsBusy}"
+            RefreshColor="White">
+            <ScrollView>
+                <VerticalStackLayout Spacing="25">
+                    <Grid
+                        Padding="0"
+                        BackgroundColor="Transparent"
+                        ColumnSpacing="0"
+                        HeightRequest="330"
+                        RowSpacing="0"
+                        VerticalOptions="Fill">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="210" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+
+                        <Image
+                            Grid.RowSpan="3"
+                            Grid.ColumnSpan="3"
+                            Aspect="AspectFill"
+                            Source="{Binding Banner}" />
+
+                        <Image
+                            Grid.RowSpan="3"
+                            Grid.ColumnSpan="3"
+                            Aspect="AspectFill"
+                            HorizontalOptions="Fill"
+                            Source="gradientfive.png" />
+                        <Frame
+                            Grid.RowSpan="2"
+                            Margin="0,0,0,0"
+                            Padding="0"
+                            BackgroundColor="Transparent"
+                            CornerRadius="75"
+                            HeightRequest="130"
+                            HorizontalOptions="Center"
+                            IsClippedToBounds="True"
+                            VerticalOptions="Center"
+                            WidthRequest="130">
+                            <Image Aspect="AspectFill" Source="{Binding Avatar}" />
+                        </Frame>
+
+                        <Label
+                            Grid.RowSpan="3"
+                            Grid.ColumnSpan="3"
+                            Margin="0,0,0,50"
+                            FontAttributes="Bold"
+                            FontSize="25"
+                            HorizontalOptions="Center"
+                            Text="TestName"
+                            TextColor="White"
+                            VerticalOptions="End" />
+
+                    </Grid>
+                    <Grid
+                        Margin="0,0,0,0"
+                        Padding="0"
+                        BackgroundColor="Transparent"
+                        ColumnSpacing="0"
+                        HeightRequest="120"
+                        RowSpacing="0"
+                        VerticalOptions="Fill">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            BackgroundColor="Transparent"
+                            Spacing="0">
+                            <Label
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="1" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="Total Animes" />
+                        </StackLayout>
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BackgroundColor="Transparent"
+                            Spacing="0">
+                            <Label
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="1" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="Episodes Watched" />
+                        </StackLayout>
+                        <StackLayout
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            BackgroundColor="Transparent"
+                            Spacing="0">
+                            <Label
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="1" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="Mean Score" />
+                        </StackLayout>
+                        <StackLayout
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            BackgroundColor="Transparent"
+                            Spacing="0">
+                            <Label
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="1" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="Total Manga" />
+                        </StackLayout>
+                        <StackLayout
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            BackgroundColor="Transparent"
+                            Spacing="0">
+                            <Label
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="1" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="Chapters Read" />
+                        </StackLayout>
+                        <StackLayout
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            BackgroundColor="Transparent"
+                            Spacing="0">
+                            <Label
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="1" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalOptions="Center"
+                                Text="Mean Score" />
+                        </StackLayout>
+                    </Grid>
+                    <BoxView
+                        Margin="15,0,15,0"
+                        HeightRequest="2"
+                        Color="Gray" />
+                </VerticalStackLayout>
+            </ScrollView>
+        </RefreshView>
+    </ContentPage.Content>
 </ContentPage>
